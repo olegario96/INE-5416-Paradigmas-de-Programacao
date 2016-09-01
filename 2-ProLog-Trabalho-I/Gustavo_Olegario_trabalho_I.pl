@@ -254,7 +254,11 @@ nomecompleto('AQI5351','Trabalho de Conclusão de Curso de Engenharia de Aquicul
 precomum(X, Y, Z) :- pre_requisito(Z,X),pre_requisito(Z,Y) ,(X \= Y).
 
 %Questao 3
-prepre(Z, X) :- pre_requisito(X,Y), pre_requisito(Y,Z).
+%Questao 3
+prepre(Pos, Prepre) :- pre_requisito(Pres, Pos),
+	member(Pre, Pres), pre_requisito(Prepres, Pre),
+	member(Prepre, Prepres).
+
 
 %Questao 4
 saopre(F, PR) :- materia(PR,F), pre_requisito(PR,MAT).
