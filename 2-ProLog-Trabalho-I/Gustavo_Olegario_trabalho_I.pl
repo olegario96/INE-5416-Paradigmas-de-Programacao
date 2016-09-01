@@ -164,6 +164,110 @@ pre_requisito(['AQI5303','AQI5320','AQI5342','AQI5343','AQI5344','AQI5345',
 
 pre_requisito(['AQI5303','AQI5320','AQI5342','AQI5343','AQI5344','AQI5345',
 			   'AQI5350'],'AQI5351').
+			   
+%------------ 1ª Fase Nome completos ------------%
+nomecompleto('AQI5103','Aquicultura Geral I').
+nomecompleto('AQI5109','Metodologia de Trabalhos Acadêmicos').
+nomecompleto('AQI5202','Sociologia para Aquicultura').
+nomecompleto('ECZ5310','Zoologia Aquática').
+nomecompleto('ENR5100','Fundamentos em Solos').
+nomecompleto('AQI5512','Hidrologia e Climatologia').
+nomecompleto('AQI5609','Desenho Técnico Rural').
+nomecompleto('MTM5515','Geometria Analítica e Álgebra Linear').
+nomecompleto('QMC5109','Química Geral').
+
+%------------ 2ª Fase Nome completos ------------%
+nomecompleto('AQI5104','Aquicultura Geral II').
+nomecompleto('BEG5106','Biologia Celular para Aquicultura').
+nomecompleto('BOT5140','Biologia de Vegetais Aquáticos').
+nomecompleto('BQA5121','Bioquímica para Aquicultura').
+nomecompleto('ENR5400','Topografia para Aquicultura').
+nomecompleto('MTM7301','Matemática I').
+
+%------------ 3ª Fase Nome completos ------------%
+nomecompleto('AQI5108','Estatística e Informática para Aquicultura').
+nomecompleto('AQI5204','Fisiologia de Animais Aquáticos').
+nomecompleto('AQI5210','Viagem de Estudo').
+nomecompleto('BEG5205','Embiologia').
+nomecompleto('FSC7118','Física para Ciências Agrárias').
+nomecompleto('MTM7304','Matemática II').
+
+%------------ 4ª Fase Nome completos ------------%
+nomecompleto('AQI5211','Qualidade de Água I').
+nomecompleto('AQI5123','Cultivo de Microalgas').
+nomecompleto('ECZ5110','Ecologia de Exossitemas Marinhos').
+nomecompleto('ECZ5111','Ecologia de Águas Continentais').
+nomecompleto('ENR5610','Hidráulica para Aquicultura').
+nomecompleto('ENR5813','Ecologia do Solo').
+nomecompleto('EXR5105','Administração para Aquicultura').
+nomecompleto('MIP5122','Microbiologia Aquática').
+
+%------------ 5ª Fase Nome completos ------------%
+nomecompleto('AQI5106','Planejamento e Gestão da Aquicultura').
+nomecompleto('AQI5212','Qualidade de Água II').
+nomecompleto('AQI5214','Nutrição em Aquicultura').
+nomecompleto('AQI5215','Aquicultura e o Meio Ambiente').
+nomecompleto('AQI5220','Estágio Supervisionado I').
+nomecompleto('BEG5403','Genética para Aquicultura').
+nomecompleto('ENR5514','Mecanização para Aquicultura').
+
+%------------ 6ª Fase Nome completos ------------%
+nomecompleto('AQI5107','Piscicultura Continental').
+nomecompleto('AQI5201','Engenharia Econômica para Aquicultura').
+nomecompleto('AQI5315','Experimentação em Aquicultura').
+nomecompleto('AQI5340','Patologia de Organismos Aquáticos I').
+nomecompleto('CAL5601','Análise de Alimentos para Aquicultura').
+nomecompleto('ENR5611','Construção Civil e Obras Hidráulicas').
+nomecompleto('EXR5125','Sistemas de Organização Social').
+
+%------------ 7ª Fase Nome completos ------------%
+nomecompleto('AQI5203','Carcinicultura').
+nomecompleto('AQI5207','CUltivo de Moluscos').
+nomecompleto('AQI5223','Melhoramento Genético para Aquicultura').
+nomecompleto('AQI5225','Piscicultura Marinha').
+nomecompleto('AQI5230','Engenharia de Sistemas para Aquicultura').
+nomecompleto('AQI5316','Instalações e Construções para Aquicultura').
+
+%------------ 8ª Fase Nome completos ------------%
+nomecompleto('AQI5235','Legislação da Aquicultura').
+nomecompleto('AQI5327','Cultivo de Organismos Aquáticos Ornamentais').
+nomecompleto('AQI5341','Patologia de Organismos Aquáticos II').
+nomecompleto('AQI5245','Tratamento de Efluentes de Aquicultura').
+nomecompleto('CAL5602','Tecnologia Pós-Despesca').
+nomecompleto('ENR7314','Instalações Elétricas para fins Rurais').
+
+%------------ 9ª Fase Nome completos ------------%
+nomecompleto('AQI5231','Elaboração de Projetos de Aquicultura').
+nomecompleto('AQI5303','Cultivo de Macroalgas').
+nomecompleto('AQI5311','Biotecnologia Aplicada à Aquicultura').
+nomecompleto('AQI5320','Materiais e Apetrechos para Aquicultura').
+nomecompleto('AQI5342','Empreendedorismo na Aquicultura').
+nomecompleto('AQI5343','Impactos, Manejos e Usos Múltiplos de Reservatórios').
+nomecompleto('AQI5344','Sistemas de Recirculação em Aquicultura').
+nomecompleto('AQI5350','Introdução ao Trabalho de Conclusão de Curso').
+
+%------------ 10ª Fase Nome completos ------------%
+nomecompleto('AQI5240','Estágio Supercisionado de Enegnharia de Aquicultura').
+nomecompleto('AQI5351','Trabalho de Conclusão de Curso de Engenharia de Aquicultura').
+
+%Questao 2
+precomum(X, Y, Z) :- pre_requisito(Z,X),pre_requisito(Z,Y) ,(X \= Y).
+
+%Questao 3
+prepre(Z, X) :- pre_requisito(X,Y), pre_requisito(Y,Z).
+
+%Questao 4
+saopre(F, PR) :- materia(PR,F), pre_requisito(PR,MAT).
+
+%Questao 5
+%tempre(F, D) :- COLOQUE SEU CODIGO AQUI
+
+%Questao 6
+%temprecomumsaopre(F, D1, D2) :- COLOQUE SEU CODIGO AQUI
+
+%Questao 7
+%proposta(F, D) :- COLOQUE SEU CODIGO AQUI
+
 
 %------------ Optativas Matérias ------------%
 optativa('AQI5301').
