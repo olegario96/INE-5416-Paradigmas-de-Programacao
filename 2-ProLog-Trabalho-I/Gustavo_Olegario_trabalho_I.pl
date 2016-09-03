@@ -112,35 +112,45 @@ pre_requisito('MTM7301','MTM7304').
 %------------ 4ª Fase Pré Requisitos ------------%
 pre_requisito('QMC5109','AQI5211').
 pre_requisito('BOT5140','AQI5123').
-pre_requisito(['ENR5609','MTM7301','MTM7304'],'ENR5610').
+pre_requisito('ENR5609','ENR5610').
+pre_requisito('MTM7301','ENR5610').
+pre_requisito('MTM7304','ENR5610').
 pre_requisito('ENR5100','ENR5813').
 pre_requisito('BEG5106','MIP5122').
 
 %------------ 5ª Fase Pré Requisitos ------------%
-pre_requisito(['AQI5211','ENR5813'],'AQI5212').
-pre_requisito(['AQI5204','BQA5121'], 'AQI5214').
+pre_requisito('ENR5813','AQI5212').
+pre_requisito('AQI5211','AQI5212').
+pre_requisito('AQI5204','AQI5214').
+pre_requisito('BQA5121', 'AQI5214').
 pre_requisito('AQI5211','AQI5215').
 pre_requisito('AQI5210','AQI5220').
-pre_requisito(['BEG5106','BQA5121'],'BEG5403').
+pre_requisito('BQA5121','BEG5403').
+pre_requisito('BEG5106','BEG5403').
 pre_requisito('FSC7118','ENR5514').
 
 %------------ 6ª Fase Pré Requisitos ------------%
 pre_requisito('AQI5212','AQI5107').
 pre_requisito('AQI5108','AQI5315').
-pre_requisito(['BQA5121','QMC5109'],'CAL5601').
-pre_requisito(['ENR5400','ENR5610'],'ENR5611').
+pre_requisito('QMC5109','CAL5601').
+pre_requisito('BQA5121','CAL5601').
+pre_requisito('ENR5610','ENR5611').
+pre_requisito('ENR5400','ENR5611').
 pre_requisito('AQI5202','EXR5125').
 
 %------------ 7ª Fase Pré Requisitos ------------%
-pre_requisito(['AQI5212','AQI5214'],'AQI5203').
+pre_requisito('AQI5214','AQI5203').
+pre_requisito('AQI5212','AQI5203').
 pre_requisito('AQI5212','AQI5207').
 pre_requisito('BEG5403','AQI5223').
-pre_requisito(['AQI5212','AQI5214'],'AQI5225').
+pre_requisito('AQI5214','AQI5225').
+pre_requisito('AQI5212','AQI5225').
 pre_requisito('AQI5106','AQI5230').
 pre_requisito('ENR5611','AQI5316').
 
 %------------ 8ª Fase Pré Requisitos ------------%
-pre_requisito(['AQI5212','AQI5214'],'AQI5327').
+pre_requisito('AQI5214','AQI5327').
+pre_requisito('AQI5212','AQI5327').
 pre_requisito('MIP5122','AQI5341').
 pre_requisito('ENR5610','AQI5345').
 pre_requisito('FSC7118','ENR7314').
@@ -155,11 +165,21 @@ pre_requisito('ENR5610','AQI5344').
 pre_requisito('AQI5220','AQI5350').
 
 %------------ 10ª Fase Pré Requisitos ------------%
-pre_requisito(['AQI5303','AQI5320','AQI5342','AQI5343','AQI5344','AQI5345',
-			   'AQI5350'],'AQI5240').
+pre_requisito('AQI5350','AQI5240').
+pre_requisito('AQI5345','AQI5240').
+pre_requisito('AQI5344','AQI5240').
+pre_requisito('AQI5303','AQI5240').
+pre_requisito('AQI5320','AQI5240').
+pre_requisito('AQI5342','AQI5240').
+pre_requisito('AQI5343','AQI5240').
 
-pre_requisito(['AQI5303','AQI5320','AQI5342','AQI5343','AQI5344','AQI5345',
-			   'AQI5350'],'AQI5351').
+pre_requisito('AQI5350','AQI5351').
+pre_requisito('AQI5345','AQI5351').
+pre_requisito('AQI5344','AQI5351').
+pre_requisito('AQI5303','AQI5351').
+pre_requisito('AQI5320','AQI5351').
+pre_requisito('AQI5342','AQI5351').
+pre_requisito('AQI5343','AQI5351').
 			   
 %------------ 1ª Fase Nome completos ------------%
 nomecompleto('AQI5103','Aquicultura Geral I').
@@ -261,8 +281,7 @@ tempre(F, D) :- materia(D,F), pre_requisito(_,D).
 
 %Questao 6
 temprecomumsaopre(F, D1, D2) :- materia(D1,F), materia(D2,F), 
-								pre_requisito(PRE,D1), pre_requisito(PRE,D2),
-								pre_requisito(D1,_), pre_requisito(D2,_), (D1 \= D2).
+								precomum(D1,D2,_), saopre(F,D1), saopre(F,D2).
 
 %Questao 7
 %OBS: Descobre a matéria caso ela seja pré-requisito de alguma optativa, baseado
