@@ -1,18 +1,14 @@
 %Copyright [2016] <Gustavo Figueira Olegário>
 
-/**
- * O propósito e a maneira como o programa funciona estão explicitados no enuncia-
- * do (que está no .zip junto com o código). O programa foi 'dividido' de acordo
- * com as fases do curso. Cada código de disciplina está associado com a fase em
- * que está. Além disso, quando a matéria necessita de pré requisito, existe
- * uma função para explicitar (podendo ser uma ou mais matérias de pré requisi-
- * to). É importante salientar também que a relação é sempre do tipo:
- * pre_requisito(X,Y): a(s) materia(s) X é(são) pré requisito(s) de Y.
- * A funcionalidade extra solicitada pelo professor foi escolhida para exibir
- * algumas matérias optativas com seus devidos pré requisito.
- *
- *
- */
+/*
+  
+  Segue um banco de dados de exemplo para o curso do Ciencias da Computacao.
+  
+  Modifique este arquivo para contemplar seu curso, conforme selecionado no t1A.
+  
+  Acrescente a implementacao das 7 regras solicitadas no t1B.
+  
+*/
 
 %------------ 1ª Fase Matérias ------------%
 materia('AQI5103',1).
@@ -20,8 +16,8 @@ materia('AQI5109',1).
 materia('AQI5202',1).
 materia('ECZ5310',1).
 materia('ENR5100',1).
-materia('AQI5512',1).
-materia('AQI5609',1).
+materia('ENR5512',1).
+materia('ENR5609',1).
 materia('MTM5515',1).
 materia('QMC5109',1).
 
@@ -44,7 +40,7 @@ materia('MTM7304',3).
 
 %------------ 4ª Fase Matérias ------------%
 materia('AQI5211',4).
-materia('AQI5123',4).
+materia('AQI5213',4).
 materia('ECZ5110',4).
 materia('ECZ5111',4).
 materia('ENR5610',4).
@@ -82,14 +78,14 @@ materia('AQI5316',7).
 materia('AQI5235',8).
 materia('AQI5327',8).
 materia('AQI5341',8).
-materia('AQI5245',8).
+materia('AQI5345',8).
 materia('CAL5602',8).
 materia('ENR7314',8).
 
 %------------ 9ª Fase Matérias ------------%
 materia('AQI5231',9).
 materia('AQI5303',9).
-materia('5311',9).
+materia('AQI5311',9).
 materia('AQI5320',9).
 materia('AQI5342',9).
 materia('AQI5343',9).
@@ -147,7 +143,7 @@ pre_requisito('ENR5611','AQI5316').
 pre_requisito(['AQI5212','AQI5214'],'AQI5327').
 pre_requisito('MIP5122','AQI5341').
 pre_requisito('ENR5610','AQI5345').
-pre_requisito('FSC7118','ENR5514').
+pre_requisito('FSC7118','ENR7314').
 
 %------------ 9ª Fase Pré Requisitos ------------%
 pre_requisito('AQI5316','AQI5231').
@@ -171,8 +167,8 @@ nomecompleto('AQI5109','Metodologia de Trabalhos Acadêmicos').
 nomecompleto('AQI5202','Sociologia para Aquicultura').
 nomecompleto('ECZ5310','Zoologia Aquática').
 nomecompleto('ENR5100','Fundamentos em Solos').
-nomecompleto('AQI5512','Hidrologia e Climatologia').
-nomecompleto('AQI5609','Desenho Técnico Rural').
+nomecompleto('ENR5512','Hidrologia e Climatologia').
+nomecompleto('ENR5609','Desenho Técnico Rural').
 nomecompleto('MTM5515','Geometria Analítica e Álgebra Linear').
 nomecompleto('QMC5109','Química Geral').
 
@@ -194,7 +190,7 @@ nomecompleto('MTM7304','Matemática II').
 
 %------------ 4ª Fase Nome completos ------------%
 nomecompleto('AQI5211','Qualidade de Água I').
-nomecompleto('AQI5123','Cultivo de Microalgas').
+nomecompleto('AQI5213','Cultivo de Microalgas').
 nomecompleto('ECZ5110','Ecologia de Exossitemas Marinhos').
 nomecompleto('ECZ5111','Ecologia de Águas Continentais').
 nomecompleto('ENR5610','Hidráulica para Aquicultura').
@@ -232,7 +228,7 @@ nomecompleto('AQI5316','Instalações e Construções para Aquicultura').
 nomecompleto('AQI5235','Legislação da Aquicultura').
 nomecompleto('AQI5327','Cultivo de Organismos Aquáticos Ornamentais').
 nomecompleto('AQI5341','Patologia de Organismos Aquáticos II').
-nomecompleto('AQI5245','Tratamento de Efluentes de Aquicultura').
+nomecompleto('AQI5345','Tratamento de Efluentes de Aquicultura').
 nomecompleto('CAL5602','Tecnologia Pós-Despesca').
 nomecompleto('ENR7314','Instalações Elétricas para fins Rurais').
 
@@ -254,23 +250,24 @@ nomecompleto('AQI5351','Trabalho de Conclusão de Curso de Engenharia de Aquicul
 precomum(X, Y, Z) :- pre_requisito(Z,X),pre_requisito(Z,Y) ,(X \= Y).
 
 %Questao 3
-%Questao 3
-prepre(Pos, Prepre) :- pre_requisito(Pres, Pos),
-	member(Pre, Pres), pre_requisito(Prepres, Pre),
-	member(Prepre, Prepres).
+prepre(D,PR) :- pre_requisito(PR,X), pre_requisito(X,D).
 
 
 %Questao 4
-saopre(F, PR) :- materia(PR,F), pre_requisito(PR,MAT).
+saopre(F, PR) :- materia(PR,F), pre_requisito(PR,_).
 
 %Questao 5
-%tempre(F, D) :- COLOQUE SEU CODIGO AQUI
+tempre(F, D) :- materia(D,F), pre_requisito(_,D).
 
 %Questao 6
-%temprecomumsaopre(F, D1, D2) :- COLOQUE SEU CODIGO AQUI
+temprecomumsaopre(F, D1, D2) :- materia(D1,F), materia(D2,F), 
+								pre_requisito(PRE,D1), pre_requisito(PRE,D2),
+								pre_requisito(D1,_), pre_requisito(D2,_), (D1 \= D2).
 
 %Questao 7
-%proposta(F, D) :- COLOQUE SEU CODIGO AQUI
+%OBS: Descobre a matéria caso ela seja pré-requisito de alguma optativa, baseado
+%nas optativas listadas ao final do arquivo.
+proposta(F, D) :- materia(D,F), pre_requisito_optativas(D,_).
 
 
 %------------ Optativas Matérias ------------%
