@@ -7,305 +7,184 @@
   Acrescente a implementacao das 7 regras solicitadas no t1B.
   
 */
-
 %------------ 1ª Fase Matérias ------------%
-materia('AQI5103',1).
-materia('AQI5109',1).
-materia('AQI5202',1).
-materia('ECZ5310',1).
-materia('ENR5100',1).
-materia('ENR5512',1).
-materia('ENR5609',1).
-materia('MTM5515',1).
-materia('QMC5109',1).
+materia('AQI5103','Aquicultura Geral I', 1, []).
+materia('AQI5109','Metodologia de Trabalhos Acadêmicos', 1, []).
+materia('AQI5202','Sociologia para Aquicultura', 1, []).
+materia('ECZ5310','Zoologia Aquática', 1, []).
+materia('ENR5100','Fundamentos em Solos', 1, []).
+materia('ENR5512','Hidrologia e Climatologia', 1, []).
+materia('ENR5609','Desenho Técnico Rural', 1, []).
+materia('MTM5515','Geometria Analítica e Álgebra Linear', 1, []).
+materia('QMC5109','Química Geral', 1, []).
 
 %------------ 2ª Fase Matérias ------------%
-materia('AQI5104',2).
-materia('BEG5106',2).
-materia('BOT5140',2).
-materia('BQA5121',2).
-materia('ENR5400',2).
-materia('MTM7301',2).
+materia('AQI5104','Aquicultura Geral II', 2, ['AQI5103']).
+materia('BEG5106','Biologia Celular para Aquicultura', 2, []).
+materia('BOT5140','Biologia de Vegetais Aquáticos', 2, []).
+materia('BQA5121','Bioquímica para Aquicultura', 2, []).
+materia('ENR5400','Topografia para Aquicultura', 2, []).
+materia('MTM7301','Matemática I', 2, []).
+
 
 %------------ 3ª Fase Matérias ------------%
-materia('AQI5108',3).
-materia('AQI5204',3).
-materia('AQI5210',3).
-materia('BEG5205',3).
-materia('FSC7118',3).
-materia('MTM7304',3).
+materia('AQI5108','Estatística e Informática para Aquicultura', 3, ['MTM5515']).
+materia('AQI5204','Fisiologia de Animais Aquáticos', 3, []).
+materia('AQI5210','Viagem de Estudo', 3, ['AQI5103']).
+materia('BEG5205','Embriologia', 3, ['MTM7301']).
+materia('FSC7118','Física para Ciências Agrárias', 3, ['MTM7301']).
+materia('MTM7304','Matemática II', 3, []).
 
 %------------ 4ª Fase Matérias ------------%
-materia('AQI5211',4).
-materia('AQI5213',4).
-materia('ECZ5110',4).
-materia('ECZ5111',4).
-materia('ENR5610',4).
-materia('ENR5813',4).
-materia('EXR5105',4).
-materia('MIP5122',4).
+materia('AQI5211','Qualidade de Água I', 4, ['QMC5109']).
+materia('AQI5213','Cultivo de Microalgas', 4, ['BOT5140']).
+materia('ECZ5110','Ecologia de Exossitemas Marinhos', 4, []).
+materia('ECZ5111','Ecologia de Águas Continentais', 4, []).
+materia('ENR5610','Hidráulica para Aquicultura', 4, ['ENR5609', 'MTM7301',
+		'MTM7304']).
+
+materia('ENR5813','Ecologia do Solo', 4, ['ENR5100']).
+materia('EXR5105','Administração para Aquicultura', 4, []).
+materia('MIP5122','Microbiologia Aquática', 4, ['BEG5106']).
 
 %------------ 5ª Fase Matérias ------------%
-materia('AQI5106',5).
-materia('AQI5212',5).
-materia('AQI5214',5).
-materia('AQI5215',5).
-materia('AQI5220',5).
-materia('BEG5403',5).
-materia('ENR5514',5).
+materia('AQI5106','Planejamento e Gestão da Aquicultura', 5, []).
+materia('AQI5212','Qualidade de Água II', 5, ['AQI5211', 'ENR5813']).
+materia('AQI5214','Nutrição em Aquicultura', 5, ['AQI5204', 'BQA5121']).
+materia('AQI5215','Aquicultura e o Meio Ambiente', 5, ['AQI5211']).
+materia('AQI5220','Estágio Supervisionado I', 5, ['AQI5210']).
+materia('BEG5403','Genética para Aquicultura', 5, ['BEG5106', 'BQA5121']).
+materia('ENR5514','Mecanização para Aquicultura', 5, ['FSC7118']).
 
 %------------ 6ª Fase Matérias ------------%
-materia('AQI5107',6).
-materia('AQI5201',6).
-materia('AQI5315',6).
-materia('AQI5340',6).
-materia('CAL5601',6).
-materia('ENR5611',6).
-materia('EXR5125',6).
+materia('AQI5107','Piscicultura Continental', 6, ['AQI5212']).
+materia('AQI5201','Engenharia Econômica para Aquicultura', 6, []).
+materia('AQI5315','Experimentação em Aquicultura', 6, ['AQI5108']).
+materia('AQI5340','Patologia de Organismos Aquáticos I', 6, []).
+materia('CAL5601','Análise de Alimentos para Aquicultura', 6, ['BQA5121',
+		'QMC5109']).
+
+materia('ENR5611','Construção Civil e Obras Hidráulicas', 6, ['ENR5400',
+		'ENR5610']).
+
+materia('EXR5125','Sistemas de Organização Social', 6, ['AQI5202']).
 
 %------------ 7ª Fase Matérias ------------%
-materia('AQI5203',7).
-materia('AQI5207',7).
-materia('AQI5223',7).
-materia('AQI5225',7).
-materia('AQI5230',7).
-materia('AQI5316',7).
+materia('AQI5203','Carcinicultura', 7, ['AQI5212', 'AQI5214']).
+materia('AQI5207','CUltivo de Moluscos', 7, ['AQI5212']).
+materia('AQI5223','Melhoramento Genético para Aquicultura', 7, ['BEG5403']).
+materia('AQI5225','Piscicultura Marinha', 7, ['AQI5212', 'AQI5214']).
+materia('AQI5230','Engenharia de Sistemas para Aquicultura', 7, ['AQI5106']).
+materia('AQI5316','Instalações e Construções para Aquicultura', 7, ['ENR5611']).
 
 %------------ 8ª Fase Matérias ------------%
-materia('AQI5235',8).
-materia('AQI5327',8).
-materia('AQI5341',8).
-materia('AQI5345',8).
-materia('CAL5602',8).
-materia('ENR7314',8).
+materia('AQI5235','Legislação da Aquicultura', 8, []).
+materia('AQI5327','Cultivo de Organismos Aquáticos Ornamentais', 8, ['AQI5212',
+		'AQI5214']).
+
+materia('AQI5341','Patologia de Organismos Aquáticos II', 8, ['MIP5122']).
+materia('AQI5345','Tratamento de Efluentes de Aquicultura', 8, ['ENR5610']).
+materia('CAL5602','Tecnologia Pós-Despesca', 8, []).
+materia('ENR7314','Instalações Elétricas para fins Rurais', 8, ['FSC7118']).
 
 %------------ 9ª Fase Matérias ------------%
-materia('AQI5231',9).
-materia('AQI5303',9).
-materia('AQI5311',9).
-materia('AQI5320',9).
-materia('AQI5342',9).
-materia('AQI5343',9).
-materia('AQI5344',9).
-materia('AQI5350',9).
+materia('AQI5231','Elaboração de Projetos de Aquicultura', 9, ['AQI5316']).
+materia('AQI5303','Cultivo de Macroalgas', 9, ['BOT5140']).
+materia('AQI5311','Biotecnologia Aplicada à Aquicultura', 9, ['BQA5121']).
+materia('AQI5320','Materiais e Apetrechos para Aquicultura', 9, []).
+materia('AQI5342','Empreendedorismo na Aquicultura', 9, ['AQI5106']).
+materia('AQI5343','Impactos, Manejos e Usos Múltiplos de Reservatórios', 9,
+		['AQI5107']).
+
+materia('AQI5344','Sistemas de Recirculação em Aquicultura', 9, ['ENR5610']).
+materia('AQI5350','Introdução ao Trabalho de Conclusão de Curso', 9,
+		['AQI5220']).
 
 %------------ 10ª Fase Matérias ------------%
-materia('AQI5240',10).
-materia('AQI5351',10).
+materia('AQI5240','Estágio Supercisionado de Enegnharia de Aquicultura', 10,
+		['AQI5303', 'AQI5320', 'AQI5342', 'AQI5343', 'AQI5344', 'AQI5345',
+		'AQI5350']).
 
-%------------ 1ª Fase Pré Requisitos ------------%
-
-%*********************NONE**********************%
-
-%------------ 2ª Fase Pré Requisitos ------------%
-pre_requisito('AQI5103','AQI5104').
-
-%------------ 3ª Fase Pré Requisitos ------------%
-pre_requisito('MTM5515','AQI5108').
-pre_requisito('AQI5103','AQI5210').
-pre_requisito('MTM7301','FSC7118').
-pre_requisito('MTM7301','MTM7304').
-
-%------------ 4ª Fase Pré Requisitos ------------%
-pre_requisito('QMC5109','AQI5211').
-pre_requisito('BOT5140','AQI5123').
-pre_requisito('ENR5609','ENR5610').
-pre_requisito('MTM7301','ENR5610').
-pre_requisito('MTM7304','ENR5610').
-pre_requisito('ENR5100','ENR5813').
-pre_requisito('BEG5106','MIP5122').
-
-%------------ 5ª Fase Pré Requisitos ------------%
-pre_requisito('ENR5813','AQI5212').
-pre_requisito('AQI5211','AQI5212').
-pre_requisito('AQI5204','AQI5214').
-pre_requisito('BQA5121', 'AQI5214').
-pre_requisito('AQI5211','AQI5215').
-pre_requisito('AQI5210','AQI5220').
-pre_requisito('BQA5121','BEG5403').
-pre_requisito('BEG5106','BEG5403').
-pre_requisito('FSC7118','ENR5514').
-
-%------------ 6ª Fase Pré Requisitos ------------%
-pre_requisito('AQI5212','AQI5107').
-pre_requisito('AQI5108','AQI5315').
-pre_requisito('QMC5109','CAL5601').
-pre_requisito('BQA5121','CAL5601').
-pre_requisito('ENR5610','ENR5611').
-pre_requisito('ENR5400','ENR5611').
-pre_requisito('AQI5202','EXR5125').
-
-%------------ 7ª Fase Pré Requisitos ------------%
-pre_requisito('AQI5214','AQI5203').
-pre_requisito('AQI5212','AQI5203').
-pre_requisito('AQI5212','AQI5207').
-pre_requisito('BEG5403','AQI5223').
-pre_requisito('AQI5214','AQI5225').
-pre_requisito('AQI5212','AQI5225').
-pre_requisito('AQI5106','AQI5230').
-pre_requisito('ENR5611','AQI5316').
-
-%------------ 8ª Fase Pré Requisitos ------------%
-pre_requisito('AQI5214','AQI5327').
-pre_requisito('AQI5212','AQI5327').
-pre_requisito('MIP5122','AQI5341').
-pre_requisito('ENR5610','AQI5345').
-pre_requisito('FSC7118','ENR7314').
-
-%------------ 9ª Fase Pré Requisitos ------------%
-pre_requisito('AQI5316','AQI5231').
-pre_requisito('BOT5140','AQI5303').
-pre_requisito('BQA5121','AQI5311').
-pre_requisito('AQI5106','AQI5342').
-pre_requisito('AQI5107','AQI5343').
-pre_requisito('ENR5610','AQI5344').
-pre_requisito('AQI5220','AQI5350').
-
-%------------ 10ª Fase Pré Requisitos ------------%
-pre_requisito('AQI5350','AQI5240').
-pre_requisito('AQI5345','AQI5240').
-pre_requisito('AQI5344','AQI5240').
-pre_requisito('AQI5303','AQI5240').
-pre_requisito('AQI5320','AQI5240').
-pre_requisito('AQI5342','AQI5240').
-pre_requisito('AQI5343','AQI5240').
-
-pre_requisito('AQI5350','AQI5351').
-pre_requisito('AQI5345','AQI5351').
-pre_requisito('AQI5344','AQI5351').
-pre_requisito('AQI5303','AQI5351').
-pre_requisito('AQI5320','AQI5351').
-pre_requisito('AQI5342','AQI5351').
-pre_requisito('AQI5343','AQI5351').
-			   
-%------------ 1ª Fase Nome completos ------------%
-nomecompleto('AQI5103','Aquicultura Geral I').
-nomecompleto('AQI5109','Metodologia de Trabalhos Acadêmicos').
-nomecompleto('AQI5202','Sociologia para Aquicultura').
-nomecompleto('ECZ5310','Zoologia Aquática').
-nomecompleto('ENR5100','Fundamentos em Solos').
-nomecompleto('ENR5512','Hidrologia e Climatologia').
-nomecompleto('ENR5609','Desenho Técnico Rural').
-nomecompleto('MTM5515','Geometria Analítica e Álgebra Linear').
-nomecompleto('QMC5109','Química Geral').
-
-%------------ 2ª Fase Nome completos ------------%
-nomecompleto('AQI5104','Aquicultura Geral II').
-nomecompleto('BEG5106','Biologia Celular para Aquicultura').
-nomecompleto('BOT5140','Biologia de Vegetais Aquáticos').
-nomecompleto('BQA5121','Bioquímica para Aquicultura').
-nomecompleto('ENR5400','Topografia para Aquicultura').
-nomecompleto('MTM7301','Matemática I').
-
-%------------ 3ª Fase Nome completos ------------%
-nomecompleto('AQI5108','Estatística e Informática para Aquicultura').
-nomecompleto('AQI5204','Fisiologia de Animais Aquáticos').
-nomecompleto('AQI5210','Viagem de Estudo').
-nomecompleto('BEG5205','Embiologia').
-nomecompleto('FSC7118','Física para Ciências Agrárias').
-nomecompleto('MTM7304','Matemática II').
-
-%------------ 4ª Fase Nome completos ------------%
-nomecompleto('AQI5211','Qualidade de Água I').
-nomecompleto('AQI5213','Cultivo de Microalgas').
-nomecompleto('ECZ5110','Ecologia de Exossitemas Marinhos').
-nomecompleto('ECZ5111','Ecologia de Águas Continentais').
-nomecompleto('ENR5610','Hidráulica para Aquicultura').
-nomecompleto('ENR5813','Ecologia do Solo').
-nomecompleto('EXR5105','Administração para Aquicultura').
-nomecompleto('MIP5122','Microbiologia Aquática').
-
-%------------ 5ª Fase Nome completos ------------%
-nomecompleto('AQI5106','Planejamento e Gestão da Aquicultura').
-nomecompleto('AQI5212','Qualidade de Água II').
-nomecompleto('AQI5214','Nutrição em Aquicultura').
-nomecompleto('AQI5215','Aquicultura e o Meio Ambiente').
-nomecompleto('AQI5220','Estágio Supervisionado I').
-nomecompleto('BEG5403','Genética para Aquicultura').
-nomecompleto('ENR5514','Mecanização para Aquicultura').
-
-%------------ 6ª Fase Nome completos ------------%
-nomecompleto('AQI5107','Piscicultura Continental').
-nomecompleto('AQI5201','Engenharia Econômica para Aquicultura').
-nomecompleto('AQI5315','Experimentação em Aquicultura').
-nomecompleto('AQI5340','Patologia de Organismos Aquáticos I').
-nomecompleto('CAL5601','Análise de Alimentos para Aquicultura').
-nomecompleto('ENR5611','Construção Civil e Obras Hidráulicas').
-nomecompleto('EXR5125','Sistemas de Organização Social').
-
-%------------ 7ª Fase Nome completos ------------%
-nomecompleto('AQI5203','Carcinicultura').
-nomecompleto('AQI5207','CUltivo de Moluscos').
-nomecompleto('AQI5223','Melhoramento Genético para Aquicultura').
-nomecompleto('AQI5225','Piscicultura Marinha').
-nomecompleto('AQI5230','Engenharia de Sistemas para Aquicultura').
-nomecompleto('AQI5316','Instalações e Construções para Aquicultura').
-
-%------------ 8ª Fase Nome completos ------------%
-nomecompleto('AQI5235','Legislação da Aquicultura').
-nomecompleto('AQI5327','Cultivo de Organismos Aquáticos Ornamentais').
-nomecompleto('AQI5341','Patologia de Organismos Aquáticos II').
-nomecompleto('AQI5345','Tratamento de Efluentes de Aquicultura').
-nomecompleto('CAL5602','Tecnologia Pós-Despesca').
-nomecompleto('ENR7314','Instalações Elétricas para fins Rurais').
-
-%------------ 9ª Fase Nome completos ------------%
-nomecompleto('AQI5231','Elaboração de Projetos de Aquicultura').
-nomecompleto('AQI5303','Cultivo de Macroalgas').
-nomecompleto('AQI5311','Biotecnologia Aplicada à Aquicultura').
-nomecompleto('AQI5320','Materiais e Apetrechos para Aquicultura').
-nomecompleto('AQI5342','Empreendedorismo na Aquicultura').
-nomecompleto('AQI5343','Impactos, Manejos e Usos Múltiplos de Reservatórios').
-nomecompleto('AQI5344','Sistemas de Recirculação em Aquicultura').
-nomecompleto('AQI5350','Introdução ao Trabalho de Conclusão de Curso').
-
-%------------ 10ª Fase Nome completos ------------%
-nomecompleto('AQI5240','Estágio Supercisionado de Enegnharia de Aquicultura').
-nomecompleto('AQI5351','Trabalho de Conclusão de Curso de Engenharia de Aquicultura').
+materia('AQI5351','Trabalho de Conclusão de Curso de Engenharia de Aquicultura',
+		10, ['AQI5303', 'AQI5320', 'AQI5342', 'AQI5343', 'AQI5344', 'AQI5345',
+		'AQI5350']).
 
 %------------ Optativas Matérias ------------%
-optativa('AQI5301').
-optativa('AQI5302').
-optativa('AQI5304').
-optativa('AQI5305').
-optativa('AQI5306').
-optativa('AQI5307').
-optativa('AQI5308').
-optativa('AQI5309').
+optativa('AQI5301', 'Aquicultura em Lagos e Represas ', []).
+optativa('AQI5302', 'Desenvolvimento Sustentável em Aquicultura', ['AQI5215']).
+optativa('AQI5304', 'Ranicultura', []).
+optativa('AQI5305', 'Cultivo de Alimento Vivo', ['AQI5213']).
+optativa('AQI5306', 'Reprodução de peixes', ['AQI5204']).
+optativa('AQI5307', 'Cultivo de Peixes Ornamentais', []).
+optativa('AQI5308', 'Cultivo de Peixes Salmonídeos', ['AQI5214']).
+optativa('AQI5309', 'Ranicultura e Diagnóstico de Enfermidades de Anfíbios',
+		[]).
 
-pre_requisito_optativas('AQI5215','AQI5302').
-pre_requisito_optativas('AQI5213','AQI5305').
-pre_requisito_optativas('AQI5204','AQI5306').
-pre_requisito_optativas('AQI5214','AQI5308').
+%Questao 1, 2 - t1A:
+fase(MAT, FASE):- materia(MAT, _, FASE, _).
+
+%Questao 3 - t1A:
+pre_requisito(MAT, PRE):- materia(MAT, _, _, PRE).
+
+%Questao 4 - t1A:
+pre_requisito_optativas(MAT, PRE) :- optativa(MAT, _, PRE).
+
+%---------Fim t1A---------% 
+
+%Questao 1 - t1B
+nomecompleto(D, N) :- materia(D, N, _, _).
+
+%Questao 2 - t1B
+precomum(D1, D2, PR) :- materia(D1, _, _, List), materia(D2, _, _, Lis),
+					   member(PR, Lis), member(PR, List).
+
+%Questao 3 - t1B
+prepre(D, PR) :- materia(D, _, _, Lis), member(Inter, Lis),
+				 materia(Inter, _, _, List), member(PR, List).
+				
+%Questao 4 - t1B
+saopre(F, PR) :- materia(_, _, _, List), member(PR, List), materia(PR, _, F, _).
+
+%Questao 5 - t1B
+tempre(F, D) :- materia(D, _, F, List), List \= [].
+
+%Questao 6 - t1B
+temprecomumsaopre(F, D1, D2) :- tempre(F, D1), tempre(F, D2),
+								precomum(D1, D2, _), saopre(F, D1), saopre(F, D2).
+
+%Questao 7 - t1B
+%OBS: Descobre a matéria caso ela seja pré-requisito de alguma optativa, baseado
+%nas optativas listadas ao final do arquivo.
+proposta(F, D) :- materia(D, _, F, _), optativa(_, _, List), member(D, List).
+
+%------------ T1C ------------%	
 
 %Questao 1 - t1C
-nfase(F, N) :- findall(_,materia(_,F),List), length(List, N).
+nfase(F, N) :- findall(_, materia(_, _, F, _), List), length(List, N).
 
 %Questao 2 - t1C
-ncurso(N) :- nfase(_,N).
+ncurso(N) :- findall(_, materia(_, _, _, _), List), length(List, N).
 
 %Questao 3 - t1C
-ntempre(N) :- findall(_,pre_requisito(_,_),List), length(List,N).
+ntempre(N) :- findall(D, tempre(_, D),List), length(List,N).
 
 %Questao 4 - t1C
-nsaopre(N) :- findall(X,pre_requisito(X,_),List), length(List,N).
+nsaopre(N) :- findall(X, saopre(_, X),List), sort(List, Lis), length(Lis,N).
 
 %Questao 5 - t1C
-npre(D, N) :- findall(_,pre_requisito(_,D),List), length(List,N).
+npre(D, N) :- materia(D, _, _, List), length(List,N).
 
 %Questao 6 - t1C
-maispre(D) :- findall(_,npre(_,D),ListMat), findall(_,nsaopre(ListMat),ListNum),
-			  max_list(ListNum,_).
-			  
+maispre(D) :- findall(NUM, npre(_, NUM), List), max_list(List, N), npre(D,N).
 
 %Questao 7 - t1C
-npos(D, N) :- findall(_,pre_requisito(D,_),List), length(List,N).
+npos(D, N) :- findall(_, saopre(_, D), List), length(List, N).
 
 %Questao 8 - t1C
-%maispos(D) :- COLOQUE SEU CODIGO AQUI
+maispos(D) :- findall(NUM, npos(_, NUM), List), length(List, TAM), npos(D,TAM).
 
 %Questao 9 - t1C
-%maiorcadeia(N) :- COLOQUE SEU CODIGO AQUI
+%maiorcadeia(N) :-
 
 %Questao 10 - t1C
 %extremo(D) :- COLOQUE SEU CODIGO AQUI
