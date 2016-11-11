@@ -28,6 +28,9 @@
 
    - Colocar o nome e matricula de cada integrante do grupo
      nestes comentarios iniciais do programa
+
+     Nome: Gustavo Figueira Olegário
+     Matrícula: 15100742
 */
 
 
@@ -38,60 +41,82 @@
 % Implementacao incompleta:
 %   - Considera apenas id1 e efetua new sem verificar sua existencia
 %   - Supoe que ha' o xylast em 'desenhos.pl'
+testes :-
+        consult('programa.pl'),
+        load,
+        tartaruga,
+        cmd("pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95"),
+        cmd("un pf 100 ul"),
+        %cmd("repita 36 [ gd 150 repita 8 [ pf 50 ge 45]]"),
+        cmd("pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95 pf 54 ge 37 pt 28 gd 95"),
+        commit.
+
 new0 :-
     consult('gramatica.pl'),
     load,
-    xylast(X, Y),
-    new(id1, X, Y).
+    retractall(angle(_)),
+    asserta(angle(90)),
+    retractall(xylast(_,_)),
+    asserta(xylast(500,500)),
+    xy(ID,_,_),!,
+    NewID is ID + 1,
+    nb_setval(idglobal, NewID),
+    uselapis,
+    asserta(xy(NewID, 500, 500)),
+    commit.
 
 % Limpa os desenhos e reinicia no centro da tela (de 1000x1000)
-% Implementacao incompleta:
-%   - Considera apenas id1
 tartaruga :-
-    retractall(xy(_,_,_)),
-    nb_setval(id1, 1),
-    new(id1, 500 ,500),
+
+    nb_setval(idglobal, 1),
+    nb_getval(idglobal, NewID),
+    uselapis,
     retractall(xylast(_,_)),
     retractall(angle(_)),
-    angle(90),
-    uselapis,
+    retractall(xy(_,_,_)),
+    asserta(angle(90)),
+    new(NewID, 500, 500),
     asserta(xylast(500, 500)).
 
 % Para frente N passos
-% Implementacao incompleta:
-%   - Considera apenas id1
-%   - Somando apenas em X, ou seja, nao considera a inclinacao da tartaruga
 parafrente(N) :-
-    nb_getval(lapis, L),
-    angle(Ang), xy(ID,X1,Y1), X2 is cos((Ang*pi)/180)*N,
-    Y2 is sin((Ang * pi)/180)*N, FinalX is X1 + X2,
-    FinalY is Y1 + Y2,
-    (L == 1 -> retractall(xylast(_,_)), asserta(xylast(FinalX,FinalY)), asserta(xy(ID,FinalX,FinalY));
-                 retractall(xylast(_,_)), asserta(xylast(FinalX,FinalY))).
+    nb_getval(lapis, Lapis),
+    xylast(X1,Y1),
+    angle(Ang),
+    X2 is sin((Ang * pi) / 180) * N,
+    Y2 is cos((Ang * pi) / 180) * N,
+    XFinal is X2 + X1,
+    YFinal is Y2 + Y1,
+    (Lapis =:= 1 -> xy(ID,_,_), retractall(xylast(_,_)), new(ID,X2, Y2), asserta(xylast(XFinal, YFinal));
+                   retractall(xylast(_,_)), asserta((xylast(XFinal, YFinal)))).
+
 
 % Para tras N passos
 paratras(N) :-
-    nb_getval(lapis, L),
-    angle(Ang), xy(ID,X1,Y1), X2 is (-1) * cos((Ang*pi)/180)*N,
-    Y2 is (-1) * sin((Ang * pi)/180)*N, FinalX is X1 + X2,
-    FinalY is Y1 + Y2,
-    (L == 1 -> retractall(xylast(_,_)), asserta(xylast(FinalX,FinalY)), asserta(xy(ID,FinalX,FinalY));
-                 retractall(xylast(_,_)), asserta(xylast(FinalX,FinalY))).
+    nb_getval(lapis, Lapis),
+    xylast(X1,Y1),
+    angle(Ang),
+    X2 is (-1) * sin((Ang * pi) / 180) * N,
+    Y2 is (-1) * cos((Ang * pi) / 180) * N,
+    XFinal is X2 + X1,
+    YFinal is Y2 + Y1,
+    (Lapis =:= 1 -> xy(ID,_,_), retractall(xylast(_,_)), new(ID,X2, Y2), asserta(xylast(XFinal, YFinal));
+                   retractall(xylast(_,_)), asserta((xylast(XFinal, YFinal)))).
 
 
 % Gira a direita G graus
 giradireita(G) :-
     angle(Ang),
-    NewAng is Ang + G,
+    NewAng is Ang - G,
     retractall(angle(_)),
-    angle(NewAng).
+    asserta(angle(NewAng)).
 
 % Gira a esquerda G graus
 giraesquerda(G) :-
     angle(Ang),
-    NewAng is Ang - G,
+    NewAng is Ang + G,
     retractall(angle(_)),
-    angle(NewAng).
+    asserta(angle(NewAng)).
 
 % Use nada (levanta lapis)
 usenada :-
@@ -99,14 +124,26 @@ usenada :-
 
 % Use lapis
 uselapis :-
-    write('Implementar: un ').
+    nb_setval(lapis, 1),
+    xylast(X,Y),
+    nb_getval(idglobal, ID),
+    NewID is ID + 1,
+    nb_setval(idglobal, NewID),
+    new(NewID, X, Y).
+
+quadrado :-
+    parafrente(100),
+    giraesquerda(90),
+    parafrente(100),
+    giraesquerda(90),
+    parafrente(100).
+
 
 
 %---------------------------------------------------
 
 
 % Apaga os predicados 'xy' da memoria e carrega os desenhos a partir de um arquivo de banco de dados
-
 load :-
     retractall(xy(_,_,_)),
     open('desenhos.pl', read, Stream),
@@ -203,6 +240,8 @@ commit :-
     telling(Screen),
     tell(Stream),
     listing(xy),
+    listing(xylast),
+    listing(angle),
     tell(Screen),
     close(Stream).
 
