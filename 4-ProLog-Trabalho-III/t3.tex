@@ -1,0 +1,225 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\geometry{legalpaper, portrait, margin=1in}
+
+\hypersetup{
+    colorlinks = true,
+    allcolors = black,
+    urlcolor = blue,
+}
+
+\setlength{\parindent}{20pt}
+\title{INE5416 - Paradigmas de Programação (2016/2) - Trabalho 3}
+\author{
+	Bruno Marques do Nascimento\\
+	\texttt{brunomn95@gmail.com}\\
+	\\ 
+	Gustavo Figueira Olegário\\
+	\texttt{gustavo-olegario@hotmail.com}\\
+	\\
+	João Victor de Mello Fagundes\\
+	\texttt{joaovictordmf@gmail.com}\\
+	\\
+}
+\date{\today}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{caption}
+\begin{document}
+\maketitle
+
+\noindent\rule{16cm}{0.4pt}
+
+\section*{Imagens fornecidas no arquivo 'imgs.zip':}
+\paragraph{}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/img1.eps}
+\includegraphics[scale=1.00]{texImgs/img2.eps}
+\includegraphics[scale=1.00]{texImgs/img3.eps}
+\includegraphics[scale=1.00]{texImgs/img4.eps}
+\includegraphics[scale=1.00]{texImgs/img5.eps}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/img6.eps}
+\includegraphics[scale=1.00]{texImgs/img7.eps}
+\includegraphics[scale=1.00]{texImgs/img8.eps}
+\includegraphics[scale=1.00]{texImgs/img9.eps}
+\end{center}
+
+\section*{Implementações solicitadas:}
+\subsection*{Calculador de centroide}
+\paragraph{}
+
+Para utilizá-lo basta utilizar o comando:
+
+\begin{center}
+\begin{minipage}{13cm}
+\begin{Verbatim}
+
+?- centroid('imgs/img1.pgm', (X,Y)).
+X = 18,
+Y = 19.
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+É possível gerar uma imagem com seu respectivo centroide destacado, com o seguinte comando:
+	
+\begin{center}
+\begin{minipage}{13cm}
+\begin{Verbatim}
+
+?- centroid('imgs/img1.pgm', _, CentroidFileName, CentroidMatrix), 
+   writePGM(CentroidFileName, FinalCentroidM). 
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/centroid_img1.eps}
+\end{center}
+	
+
+Além disso, existe um comando para gerar todas as imagens fornecidas pelo professor no arquivo imgs.zip, com seus respectivos centroids.
+
+\begin{center}
+\begin{minipage}{13cm}
+\begin{Verbatim}
+
+?- generateAllCentroid().
+
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/centroid_img2.eps}
+\includegraphics[scale=1.00]{texImgs/centroid_img3.eps}
+\includegraphics[scale=1.00]{texImgs/centroid_img4.eps}
+\includegraphics[scale=1.00]{texImgs/centroid_img5.eps}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/centroid_img6.eps}
+\includegraphics[scale=1.00]{texImgs/centroid_img7.eps}
+\includegraphics[scale=1.00]{texImgs/centroid_img8.eps}
+\includegraphics[scale=1.00]{texImgs/centroid_img9.eps}
+\end{center}
+
+
+\subsection*{Detector de borda}
+\paragraph{}
+	Para utilizar o detector de bordas, ou seja, gerar a imagem que representa a borda da imagem fornecida, basta utilizar o seguinte comando:
+
+\begin{center}
+\begin{minipage}{13cm}
+\begin{Verbatim}
+
+?- border('imgs/img1.pgm', _, _).
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/border_img1.eps}
+\end{center}
+
+	Também é possível gerar a borda de todas as imagens automaticamente, através do comando:
+
+\begin{center}
+\begin{minipage}{13cm}
+\begin{Verbatim}
+
+?- generateAllBorder().
+
+\end{Verbatim}
+\end{minipage}
+\end{center}	
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/border_img2.eps}
+\includegraphics[scale=1.00]{texImgs/border_img3.eps}
+\includegraphics[scale=1.00]{texImgs/border_img4.eps}
+\includegraphics[scale=1.00]{texImgs/border_img5.eps}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/border_img6.eps}
+\includegraphics[scale=1.00]{texImgs/border_img7.eps}
+\includegraphics[scale=1.00]{texImgs/border_img8.eps}
+\includegraphics[scale=1.00]{texImgs/border_img9.eps}
+\end{center}
+
+
+\subsection*{Extrator de característica}
+\paragraph{}
+	O extrator de característica fornece a distância média entre os pontos de uma determinada imagem e seu centróide, e o desvio padrão destas distâncias. Ele é utilizado com a seguinte chamada:
+
+\begin{center}
+\begin{minipage}{13cm}
+\begin{Verbatim}
+
+?- characteristicExtractor('imgs/img1.pgm', MeanDistance, StandardDeviation).
+   MeanDistance = 9.502553256112856,
+   StandardDeviation = 3.379121593967018.
+
+\end{Verbatim}
+\end{minipage}
+\end{center}	
+
+\subsection*{Reconhecedor de imagem com círculo}
+\paragraph{}
+	Para este reconhecedor de imagem com círculo, partiu-se do prícipio que o desvio padrão da distância dos pontos presentes na borda de uma circunferência ao seu centro sempre será o menor dentre as formas conhecidas(Ex: Quadrado, Triangulo, etc.), pois é na circunferência onde temos a menor variação de distância já que todos estão a uma mesma distância do centro. Com isso foi definido um valor inicial de desvio padrão de 0.54 no arquivo 'database.pl', que será alterado conforme o usuário identifica círculo nas imagens fornecidas. Abaixo temos um exemplo de uso do reconhecedor de imagem:
+	\\
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/img7.eps}
+\end{center}
+
+\begin{center}
+\begin{minipage}{6cm}
+\begin{Verbatim}
+?- isCircle('imgs/img7.pgm').
+Identifying...This is a circle!
+
+
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/img8.eps}
+\end{center}
+
+\begin{center}
+\begin{minipage}{6cm}
+\begin{Verbatim}
+?- isCircle('imgs/img8.pgm').
+Identifying...This is not a circle!
+Is this a circle? [y/n]y.
+
+
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=1.00]{texImgs/img8.eps}
+\end{center}
+
+\begin{center}
+\begin{minipage}{6cm}
+\begin{Verbatim}
+?- isCircle('imgs/img8.pgm').
+Identifying...This is a circle!
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+\end{document}
